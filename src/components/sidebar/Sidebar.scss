@@ -32,10 +32,11 @@
 
   .sidebarRight {
     background-color: #2f3036;
+    width: 300px;
+    position: relative;
   }
 
   .sidebarTop {
-    width: 300px;
     color: #ffffff;
     display: flex;
     align-items: center;
@@ -65,5 +66,46 @@
     .sidebarAddIcon {
       cursor: pointer;
     }
+  }
+
+  .sidebarFooter {
+    position: absolute;
+    bottom: 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 93%;
+    padding-bottom: 10px;
+    border-top: 1px solid #686a6e;
+    margin-left: -3px;
+  }
+
+  .sidebarAccount {
+    display: flex;
+    align-items: center;
+
+    img {
+      width: 50px;
+      padding: 5px;
+    }
+
+    .accountName {
+      margin-left: 5px;
+
+      h4 {
+        color: white;
+        font-weight: 500;
+      }
+
+      span {
+        color: #686a6e;
+      }
+    }
+  }
+
+  .sidebarVoice {
+    display: flex;
+    align-items: center;
+    color: #686a6e;
   }
 }
