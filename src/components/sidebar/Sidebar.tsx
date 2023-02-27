@@ -1,6 +1,7 @@
-import React from 'react'
-import "./Sidebar.scss"
-import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
+import React from "react";
+import "./Sidebar.scss";
+import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
+import AddIcon from "@mui/icons-material/Add";
 
 const Sidebar = () => {
   return (
@@ -20,9 +21,19 @@ const Sidebar = () => {
           <h3>Discord</h3>
           <ExpandMoreIcon />
         </div>
+        {/* sidebarChannels */}
+        <div className="sidebarChannels">
+          <div className="sidebarChannelsHeader">
+            <div className="sidebarHeader">
+              <ExpandMoreIcon className="sidebarExpandMoreIcon" />
+              <h4>テストチャンネル</h4>
+            </div>
+            <AddIcon className="sidebarAddIcon" />
+          </div>
+        </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default Sidebar
+export default Sidebar;

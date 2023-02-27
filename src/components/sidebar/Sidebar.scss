@@ -31,7 +31,7 @@
   }
 
   .sidebarRight {
-    background-color: #2F3036;
+    background-color: #2f3036;
   }
 
   .sidebarTop {
@@ -41,5 +41,29 @@
     align-items: center;
     justify-content: space-between;
     padding: 20px;
+  }
+
+  .sidebarChannels {
+    padding: 13px;
+
+    .sidebarChannelsHeader {
+      color: white;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 5px;
+    }
+
+    .sidebarHeader {
+      display: flex;
+
+      .sidebarExpandMoreIcon {
+        padding-right: 10px;
+      }
+    }
+
+    .sidebarAddIcon {
+      cursor: pointer;
+    }
   }
 }
