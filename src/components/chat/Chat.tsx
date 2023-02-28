@@ -1,6 +1,10 @@
 import React from "react";
 import "./Chat.scss";
 import ChatHeader from "./ChatHeader";
+import AddCircleOutlineIcon from "@mui/icons-material/AddCircleOutline";
+import RedeemIcon from "@mui/icons-material/Redeem";
+import GifBoxIcon from "@mui/icons-material/GifBox";
+import EmojiEmotionsIcon from "@mui/icons-material/EmojiEmotions";
 
 const Chat = () => {
   return (
@@ -10,7 +14,21 @@ const Chat = () => {
       {/* chatMessage */}
       <div className="chatMessage"></div>
       {/* chatInput */}
-      <div className="chatInput"></div>
+      <div className="chatInput">
+        <AddCircleOutlineIcon />
+        <form action="">
+          <input type="text" placeholder="Testへメッセージを送信" />
+          <button type="submit" className="chatInputButton">
+            送信
+          </button>
+        </form>
+
+        <div className="chatInputIcons">
+          <RedeemIcon className="chatInputIcon" />
+          <GifBoxIcon className="chatInputIcon" />
+          <EmojiEmotionsIcon className="chatInputIcon" />
+        </div>
+      </div>
     </div>
   );
 };
