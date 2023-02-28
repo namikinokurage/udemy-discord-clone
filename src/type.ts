@@ -1,4 +1,4 @@
-export type initialUserStateType = {
+export type InitialUserStateType = {
   user: null | {
     uid: string;
     photo: string;
