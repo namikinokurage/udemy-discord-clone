@@ -6,8 +6,13 @@ import SidebarChannel from "./SidebarChannel";
 import MicIcon from "@mui/icons-material/Mic";
 import HeadphonesIcon from "@mui/icons-material/Headphones";
 import SettingsIcon from "@mui/icons-material/Settings";
+import { auth } from "../../firebase";
 
 const Sidebar = () => {
+  const logout = () => {
+    auth.signOut();
+  };
+
   return (
     <div className="sidebar">
       {/* sidebarLeft */}
@@ -48,7 +53,7 @@ const Sidebar = () => {
         {/* sidebarFooter */}
         <div className="sidebarFooter">
           <div className="sidebarAccount">
-            <img src="./logo192.png" alt="" />
+            <img src="./logo192.png" alt="" onClick={logout} />
             <div className="accountName">
               <h4>namikinokurage</h4>
               <span>#9999</span>
