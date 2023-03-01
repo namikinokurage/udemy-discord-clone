@@ -6,3 +6,8 @@ export type InitialUserStateType = {
     displayName: string;
   };
 };
+
+export type InitialChannelStateType = {
+  channelId: string | null;
+  channelName: string | null;
+};
