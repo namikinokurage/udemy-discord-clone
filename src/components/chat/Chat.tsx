@@ -63,7 +63,9 @@ const Chat = () => {
     e: React.MouseEvent<HTMLButtonElement, MouseEvent>
   ) => {
     e.preventDefault();
-
+    if (inputText === "") {
+      return;
+    }
     // channelsのサブコレクションmessageに入力した情報を入れる
     const collectionRef: CollectionReference<DocumentData> = collection(
       db,
