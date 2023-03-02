@@ -1,3 +1,5 @@
+import { Timestamp } from "firebase/firestore";
+
 export type InitialUserStateType = {
   user: null | {
     uid: string;
@@ -10,4 +12,10 @@ export type InitialUserStateType = {
 export type InitialChannelStateType = {
   channelId: string | null;
   channelName: string | null;
+};
+
+export type ChatMessagesType = {
+  timestamp: Timestamp;
+  message: string;
+  user: NonNullable<InitialUserStateType["user"]>;
 };

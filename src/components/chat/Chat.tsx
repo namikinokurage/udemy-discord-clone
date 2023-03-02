@@ -14,20 +14,13 @@ import {
   DocumentData,
   onSnapshot,
   serverTimestamp,
-  Timestamp,
 } from "firebase/firestore";
 import { db } from "../../firebase";
-import { InitialUserStateType } from "../../type";
-
-type MessagesType = {
-  timestamp: Timestamp;
-  message: string;
-  user: NonNullable<InitialUserStateType["user"]>;
-};
+import { ChatMessagesType } from "../../type";
 
 const Chat = () => {
   const [inputText, setInputText] = React.useState<string>("");
-  const [messages, setMessages] = React.useState<MessagesType[]>([]);
+  const [messages, setMessages] = React.useState<ChatMessagesType[]>([]);
 
   const channelName = useAppSelector((state) => state.channel.channelName);
   const channelId = useAppSelector((state) => state.channel.channelId);
@@ -41,7 +34,7 @@ const Chat = () => {
       "messages"
     );
     onSnapshot(collectionRef, (snapshot) => {
-      let results: MessagesType[] = [];
+      let results: ChatMessagesType[] = [];
       snapshot.docs.forEach((doc) => {
         results.push({
           timestamp: doc.data().timestamp,
@@ -84,7 +77,17 @@ const Chat = () => {
       <ChatHeader channelName={channelName} />
       {/* chatMessage */}
       <div className="chatMessage">
-        <ChatMessage />
+        {messages.map((msg, index) => {
+          const { message, user, timestamp }: ChatMessagesType = msg;
+          return (
+            <ChatMessage
+              key={index}
+              message={message}
+              user={user}
+              timestamp={timestamp}
+            />
+          );
+        })}
       </div>
       {/* chatInput */}
       <div className="chatInput">

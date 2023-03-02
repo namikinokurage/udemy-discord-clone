@@ -1,17 +1,23 @@
 import React from "react";
 import "./ChatMessage.scss";
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
+import { ChatMessagesType } from "../../type";
 
-const ChatMessage = () => {
+type Props = ChatMessagesType;
+
+const ChatMessage = (props: Props) => {
+  const { user, message, timestamp } = props;
   return (
     <div className="message">
       <AccountCircleIcon />
       <div className="messageInfo">
         <h4>
-          namikinokurage
-          <span className="messageTimestamp">2023/02/28</span>
+          {user?.displayName}
+          <span className="messageTimestamp">
+            {new Date(timestamp?.toDate()).toLocaleString()}
+          </span>
         </h4>
-        メッセージ本文
+        {message}
       </div>
     </div>
   );
