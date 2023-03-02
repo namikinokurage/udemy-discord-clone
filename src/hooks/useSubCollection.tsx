@@ -38,7 +38,7 @@ export const useSubCollection = (
 
       setSubDocuments(results);
     });
-  }, [channelId]);
+  }, [channelId, collectionName, subCollectionName]);
 
   return { subDocuments };
 };
