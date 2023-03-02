@@ -13,6 +13,8 @@ import {
   CollectionReference,
   DocumentData,
   onSnapshot,
+  orderBy,
+  query,
   serverTimestamp,
 } from "firebase/firestore";
 import { db } from "../../firebase";
@@ -33,7 +35,13 @@ const Chat = () => {
       String(channelId),
       "messages"
     );
-    onSnapshot(collectionRef, (snapshot) => {
+
+    const collectionRefOrderBy = query(
+      collectionRef,
+      orderBy("timestamp", "asc")
+    );
+
+    onSnapshot(collectionRefOrderBy, (snapshot) => {
       let results: ChatMessagesType[] = [];
       snapshot.docs.forEach((doc) => {
         results.push({
@@ -69,6 +77,8 @@ const Chat = () => {
       timestamp: serverTimestamp(),
       user: user,
     });
+
+    setInputText("");
   };
 
   return (
@@ -97,6 +107,7 @@ const Chat = () => {
             type="text"
             placeholder="Testへメッセージを送信"
             onChange={setMessage}
+            value={inputText}
           />
           <button
             type="submit"
